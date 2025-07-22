@@ -22,6 +22,6 @@ jobs:
     - name: Build and Push ${{ matrix.service }}
       uses: docker/build-push-action@v2
       with:
-        context: ./app/${{ matrix.service }}
+        context: ./${{ matrix.service }}
         push: true
-        tags: your-dockerhub/logmein-${{ matrix.service }}:latest
+        tags: cedricteyc/logmein-${{ matrix.service }}:latest
