@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Logs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Dashboard Logs</h1>
+            <div class="controls">
+                <button id="refresh-btn" class="btn btn-primary">🔄 Actualiser</button>
+                <button id="clear-btn" class="btn btn-danger">🗑️ Vider</button>
+                <button id="add-test-btn" class="btn btn-secondary">➕ Test Log</button>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total</h3>
+                <div class="stat-value" id="total-logs">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Erreurs</h3>
+                <div class="stat-value error" id="error-count">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Warnings</h3>
+                <div class="stat-value warning" id="warning-count">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Dernier log</h3>
+                <div class="stat-value" id="last-log">-</div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <select id="level-filter">
+                <option value="">Tous les niveaux</option>
+                <option value="error">Erreurs</option>
+                <option value="warning">Warnings</option>
+                <option value="info">Info</option>
+                <option value="debug">Debug</option>
+            </select>
+            <select id="service-filter">
+                <option value="">Tous les services</option>
+            </select>
+            <input type="text" id="search-input" placeholder="Rechercher dans les messages...">
+        </div>
+
+        <div class="logs-container">
+            <div id="logs-list"></div>
+        </div>
+
+        <div class="pagination">
+            <button id="load-more-btn" class="btn btn-secondary">Charger plus</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
