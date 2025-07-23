@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: logmein-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: logs_db
+      POSTGRES_USER: logs_user
+      POSTGRES_PASSWORD: logs_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - logmein-net
+
+  backend:
+    image: cedricteyc/logmein-backend:latest
+    container_name: logmein-backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_NAME: logs_db
+      DB_USER: logs_user
+      DB_PASSWORD: logs_password
+      DB_PORT: 5432
+    networks:
+      - logmein-net
+
+networks:
+  logmein-net:
+
+volumes:
+  postgres_data:
