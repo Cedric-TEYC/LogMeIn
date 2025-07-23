@@ -99,7 +99,7 @@ CREATE TABLE logs (
 
 ### Interface Web
 
-1. **Dashboard** : Affiche les putes putes et la liste des logs
+1. **Dashboard** : Affiche les statistiques putes putes et la liste des logs
 2. **Filtres** : Filtrer par niveau, service ou message
 3. **Pagination** : Support des `limit` et `offset`
 4. **Actions** :
